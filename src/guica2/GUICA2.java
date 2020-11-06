@@ -5,11 +5,13 @@
  */
 package guica2;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Andressa Gomes
  */
-public class GUICA2 {
+public class GUICA2 extends JFrame{
 
     /**
      * @param args the command line arguments
@@ -18,4 +20,16 @@ public class GUICA2 {
         // TODO code application logic here
     }
     
+    // Setting attributes
+    private void attributesSetter(){
+        this.setVisible(true);
+        this.setSize(400,400);
+        this.setTitle("GUI CA 2");
+    }
+    
+    // Validation and repainting
+    private void validation(){
+        this.validate();
+        this.repaint();
+    }
 }
