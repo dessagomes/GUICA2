@@ -6,9 +6,12 @@
 package guica2;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -17,13 +20,17 @@ import javax.swing.JTextField;
  * @author Andressa Gomes
  */
 public class View extends JFrame{
-    JTextField login;
+    JTextField username;
     JTextField password;
+    MainController controller;
     
-    public View(){    
+    
+    public View(MainController controller){   
+        this.controller = controller;
         attributeSetter();
         mainPage();
         validation();
+        
         
     }
     // Setting attributes
@@ -41,13 +48,13 @@ public class View extends JFrame{
         
 
         JPanel mainP = new JPanel();
-        GridLayout middleLayout = new GridLayout(3,1);
+        GridLayout middleLayout = new GridLayout(5,1);
         mainP.setLayout(middleLayout);
         p.add(mainP);
         
         JPanel loginP = new JPanel();
-        login = new JTextField(20);
-        loginP.add(login);
+        username = new JTextField(20);
+        loginP.add(username);
         mainP.add(loginP);
         JPanel passwordP = new JPanel();
         password = new JTextField(20);
@@ -58,7 +65,24 @@ public class View extends JFrame{
         JButton loginB = new JButton("LOGIN");
         buttonP.add(loginB);
         mainP.add(buttonP);
+        loginB.setActionCommand("loginb");
+        loginB.addActionListener(controller);
         
+        JPanel link1P = new JPanel();
+        mainP.add(link1P);
+        JLabel link1 = new JLabel("Register new Barber");
+        link1.setForeground(Color.BLUE);
+        link1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        link1.addMouseListener(null);
+        link1P.add(link1);
+        
+        JPanel link2P = new JPanel();
+        mainP.add(link2P);
+        JLabel link2 = new JLabel("Register new Customer");
+        link2.setForeground(Color.BLUE);
+        link2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        link2.addMouseListener(null);
+        link2P.add(link2);
         
     }
     
@@ -66,5 +90,13 @@ public class View extends JFrame{
     private void validation(){
         this.validate();
         this.repaint();
+    }
+    
+    public String getUsername(){
+        return username.getText();
+    }
+    
+    public String getPassword(){
+        return password.getText();
     }
 }
