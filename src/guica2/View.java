@@ -73,7 +73,7 @@ public class View extends JFrame{
         JLabel link1 = new JLabel("Register new Barber");
         link1.setForeground(Color.BLUE);
         link1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        link1.addMouseListener(null);
+        link1.addMouseListener(controller);
         link1P.add(link1);
         
         JPanel link2P = new JPanel();
@@ -81,7 +81,7 @@ public class View extends JFrame{
         JLabel link2 = new JLabel("Register new Customer");
         link2.setForeground(Color.BLUE);
         link2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        link2.addMouseListener(null);
+        link2.addMouseListener(controller);
         link2P.add(link2);
         
     }
