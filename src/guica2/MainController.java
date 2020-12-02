@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,7 +26,8 @@ public class MainController implements ActionListener, MouseListener{
 
     View view;
     MainModel model;
-//    ViewRegisterBarber barberview; 
+    ViewRegisterBarber barberview; 
+    boolean result;
     
     public MainController(){
         this.view = new View(this);
@@ -40,22 +43,22 @@ public class MainController implements ActionListener, MouseListener{
         
         User user = new User(un, pw);
         
-        boolean result = model.login(user);
+        this.result = model.login(user);
     
         if(e.getActionCommand().equals("logionb")){
-            model.login(user);
-            if(result){
-                JOptionPane.showMessageDialog(view, "Welcome!");
+            //open next page
+            
             } else{
                 JOptionPane.showMessageDialog(view, "Try again");
-            }
-            
+            }    
         }
-        }
+        
 
     @Override
     public void mouseClicked(MouseEvent e) {
-//        ViewRegisterBarber(); 
+        view.setVisible(false);
+        new RegisterBController();
+       
     }
 
     @Override

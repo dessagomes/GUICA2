@@ -5,8 +5,13 @@
         <group>
             <file>file:/C:/Users/dessa/Documents/NetBeansProjects/GUICA2/src/guica2/View.java</file>
             <file>file:/C:/Users/dessa/Documents/NetBeansProjects/GUICA2/src/guica2/MainModel.java</file>
+            <file>file:/C:/Users/dessa/Documents/NetBeansProjects/GUICA2/src/guica2/RegisterBModel.java</file>
+            <file>file:/C:/Users/dessa/Documents/NetBeansProjects/GUICA2/src/guica2/ViewRegisterBarber.java</file>
             <file>file:/C:/Users/dessa/Documents/NetBeansProjects/GUICA2/src/guica2/GUICA2.java</file>
             <file>file:/C:/Users/dessa/Documents/NetBeansProjects/GUICA2/src/guica2/MainController.java</file>
+            <file>file:/C:/Users/dessa/Documents/NetBeansProjects/GUICA2/src/guica2/RegisterBController.java</file>
+            <file>file:/C:/Users/dessa/Documents/NetBeansProjects/GUICA2/src/guica2/Barber.java</file>
+            <file>file:/C:/Users/dessa/Documents/NetBeansProjects/GUICA2/src/guica2/User.java</file>
         </group>
     </open-files>
 </project-private>

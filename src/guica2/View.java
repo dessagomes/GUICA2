@@ -5,6 +5,7 @@
  */
 package guica2;
 
+import com.placeholder.PlaceHolder;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -23,6 +24,7 @@ public class View extends JFrame{
     JTextField username;
     JTextField password;
     MainController controller;
+    PlaceHolder ph;
     
     
     public View(MainController controller){   
@@ -38,6 +40,7 @@ public class View extends JFrame{
         this.setVisible(true);
         this.setSize(400,400);
         this.setTitle("Find Your Cut");
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     
     public void mainPage(){
@@ -55,10 +58,12 @@ public class View extends JFrame{
         JPanel loginP = new JPanel();
         username = new JTextField(20);
         loginP.add(username);
+        ph = new PlaceHolder(username,"Email");
         mainP.add(loginP);
         JPanel passwordP = new JPanel();
         password = new JTextField(20);
         passwordP.add(password);
+        ph = new PlaceHolder(password,"Password");
         mainP.add(passwordP);
         
         JPanel buttonP = new JPanel();
@@ -82,7 +87,7 @@ public class View extends JFrame{
         link2.setForeground(Color.BLUE);
         link2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         link2.addMouseListener(controller);
-        link2P.add(link2);
+        link2P.add(link2);       
         
     }
     

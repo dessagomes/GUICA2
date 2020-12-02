@@ -15,27 +15,25 @@ import javax.swing.JOptionPane;
  *
  * @author Andressa Gomes
  */
-public class RegisterBController implements ActionListener{
-    ViewRegisterBarber view;
-    RegisterBModel model;   
+public class RegisterControllerC implements ActionListener{
+    ViewRegisterC view;
+    RegisterCModel model;   
     boolean result;
     
-    public RegisterBController(){
-        this.view = new ViewRegisterBarber(this);
-        this.model = new RegisterBModel();
+    public RegisterControllerC(){
+        this.model = new RegisterCModel();
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        String bName = view.getBName();
-        String bEmail = view.getBEmail();
-        String bPhone = view.getBPhone();
-        String bLocal = view.getBLocal();
-        String bPass = view.getBPass();
+        String cName = view.getCName();
+        String cEmail = view.getCEmail();
+        String cPhone = view.getCPhone();
+        String cPass = view.getCPass();
         
-        Barber barber = new Barber(bName, bEmail, bPhone, bLocal, bPass);
+       Customer customer = new Customer(cName, cEmail, cPhone, cPass);
         
-        this.result = model.newBarber(barber);
+        this.result = model.newCustomer(customer);
         
             if(result){
                 JOptionPane.showMessageDialog(view, "You're now register!");
@@ -43,7 +41,6 @@ public class RegisterBController implements ActionListener{
             } else{
                 JOptionPane.showMessageDialog(view, "Sorry, something went wrong. Try again");
             }
-        
     }
-
+    
 }
