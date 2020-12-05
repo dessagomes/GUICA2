@@ -26,7 +26,6 @@ public class MainController implements ActionListener, MouseListener{
 
     View view;
     MainModel model;
-    ViewRegisterBarber barberview; 
     boolean result;
     
     public MainController(){
@@ -56,8 +55,17 @@ public class MainController implements ActionListener, MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        view.setVisible(false);
-        new RegisterBController();
+        
+        if(e.getSource().equals(view.link1)){
+            view.setVisible(false);
+            new RegisterBController();
+        }
+        else if(e.getSource().equals(view.link2)){
+            view.setVisible(false);
+            new RegisterControllerC();
+        }
+        
+        
        
     }
 

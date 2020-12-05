@@ -37,7 +37,7 @@ public class RegisterBController implements ActionListener{
         
         this.result = model.newBarber(barber);
         
-            if(result){
+            if(!result){
                 JOptionPane.showMessageDialog(view, "You're now register!");
                 
             } else{

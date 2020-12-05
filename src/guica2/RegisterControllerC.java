@@ -21,6 +21,7 @@ public class RegisterControllerC implements ActionListener{
     boolean result;
     
     public RegisterControllerC(){
+        this.view = new ViewRegisterC(this);
         this.model = new RegisterCModel();
     }
     
@@ -35,8 +36,9 @@ public class RegisterControllerC implements ActionListener{
         
         this.result = model.newCustomer(customer);
         
-            if(result){
+            if(!result){
                 JOptionPane.showMessageDialog(view, "You're now register!");
+                new View2c();
                 
             } else{
                 JOptionPane.showMessageDialog(view, "Sorry, something went wrong. Try again");

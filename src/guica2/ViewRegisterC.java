@@ -25,9 +25,9 @@ public class ViewRegisterC extends JFrame{
     JTextField cPhone;
     JTextField cPass;
     JButton b;
-    MainController controller;
+    RegisterControllerC controller;
     
-    public ViewRegisterC(MainController controller){
+    public ViewRegisterC(RegisterControllerC controller){
         this.controller = controller;
         attributeSetter();
         mainPage();

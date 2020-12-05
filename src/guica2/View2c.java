@@ -5,6 +5,8 @@
  */
 package guica2;
 
+import com.placeholder.PlaceHolder;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
@@ -14,6 +16,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
 /**
@@ -29,11 +32,14 @@ public class View2c extends JFrame{
     JMenu b;
     JMenu l;
     JList list;
-    JLabel searchbox;
+    JTextField searchbox;
     JScrollPane listScroller;
-    //missing searchbox
+    PlaceHolder ph;
+    Model2c model;
+//    RegisterControllerC controller1;
     
     public View2c (){
+//        this.controller1 = controller1;
         attributeSetter();
         mainPage();
         validation();
@@ -49,7 +55,10 @@ public class View2c extends JFrame{
     
     public void mainPage(){
         p = new JPanel();
-        this.add(p);      
+        this.add(p);     
+        
+        BorderLayout mainLayout = new BorderLayout();
+        p.setLayout(mainLayout);
         
         mb = new JMenuBar();
         this.setJMenuBar(mb);
@@ -74,21 +83,27 @@ public class View2c extends JFrame{
         JPanel p1 = new JPanel();
         mainL = new JLabel("FIND BARBER");
         p1.add(mainL);
-        p.add(p1);  
+        mainP.add(p1);
         
         JPanel p2 = new JPanel();
-        searchbox = new JLabel ("SEARCHBOX HERE");
+        searchbox = new JTextField(20);
+        searchbox.addKeyListener(null);//fix it
+        ph = new PlaceHolder(searchbox,"Search by Location or Barber");
         p2.add(searchbox);
-        p.add(p2);
+        mainP.add(p2);
         
         JPanel p3 = new JPanel();
-        //missing array
-        list = new JList();
+        String[][] data = model.locationList();
+        list = new JList(data);
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         listScroller = new JScrollPane(list);
-        listScroller.setPreferredSize(new Dimension(150, 80));
+        listScroller.setPreferredSize(new Dimension(20, 50));
         p3.add(listScroller);
-        
+        mainP.add(p3);    
+    }
+    
+    public String getSearch(){
+        return searchbox.getText();
     }
     
     // Validation and repainting

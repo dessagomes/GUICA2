@@ -25,15 +25,14 @@ public class View extends JFrame{
     JTextField password;
     MainController controller;
     PlaceHolder ph;
-    
+    JLabel link1;
+    JLabel link2;
     
     public View(MainController controller){   
         this.controller = controller;
         attributeSetter();
         mainPage();
-        validation();
-        
-        
+        validation();   
     }
     // Setting attributes
     private void attributeSetter(){
@@ -48,7 +47,6 @@ public class View extends JFrame{
         this.add(p);
         BorderLayout mainLayout = new BorderLayout();
         p.setLayout(mainLayout);
-        
 
         JPanel mainP = new JPanel();
         GridLayout middleLayout = new GridLayout(5,1);
@@ -75,7 +73,7 @@ public class View extends JFrame{
         
         JPanel link1P = new JPanel();
         mainP.add(link1P);
-        JLabel link1 = new JLabel("Register new Barber");
+        link1 = new JLabel("Register new Barber");
         link1.setForeground(Color.BLUE);
         link1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         link1.addMouseListener(controller);
@@ -83,7 +81,7 @@ public class View extends JFrame{
         
         JPanel link2P = new JPanel();
         mainP.add(link2P);
-        JLabel link2 = new JLabel("Register new Customer");
+        link2 = new JLabel("Register new Customer");
         link2.setForeground(Color.BLUE);
         link2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         link2.addMouseListener(controller);

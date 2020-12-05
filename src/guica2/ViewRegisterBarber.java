@@ -75,7 +75,7 @@ public class ViewRegisterBarber extends JFrame{
         
         JPanel p5 = new JPanel();
         bLocal = new JTextField(20);
-        ph = new PlaceHolder(bLocal,"Localization");
+        ph = new PlaceHolder(bLocal,"Location");
         p5.add(bLocal);
         p.add(p5);
         
