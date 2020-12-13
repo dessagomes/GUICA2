@@ -32,8 +32,7 @@ public class ViewRegisterBarber extends JFrame{
         this.controller = controller;
         attributeSetter();
         mainPage();
-        validation();    
-        
+        validation();        
     }
     // Setting attributes
     private void attributeSetter(){
@@ -42,7 +41,7 @@ public class ViewRegisterBarber extends JFrame{
         this.setTitle("Find Your Cut");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
-    
+    //my frame
     public void mainPage(){
         JPanel p = new JPanel();
         this.add(p);
@@ -89,10 +88,10 @@ public class ViewRegisterBarber extends JFrame{
         b = new JButton("Register");
         b.addActionListener(controller);
         p7.add(b);
-        p.add(p7);
-        
+        p.add(p7);        
     }
     
+    //getters to get info from the user and return it
     public String getBName(){
         return bName.getText();
     }
@@ -113,7 +112,7 @@ public class ViewRegisterBarber extends JFrame{
         return bPass.getText();
     }
     
-    // Validation and repainting
+    // Validation and repaint
     private void validation(){
         this.validate();
         this.repaint();

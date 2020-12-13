@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -22,7 +23,7 @@ import javax.swing.JTextField;
  */
 public class View extends JFrame{
     JTextField username;
-    JTextField password;
+    JPasswordField password;
     MainController controller;
     PlaceHolder ph;
     JLabel link1;
@@ -34,6 +35,7 @@ public class View extends JFrame{
         mainPage();
         validation();   
     }
+    
     // Setting attributes
     private void attributeSetter(){
         this.setVisible(true);
@@ -42,6 +44,7 @@ public class View extends JFrame{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     
+    //my frame
     public void mainPage(){
         JPanel p = new JPanel();
         this.add(p);
@@ -59,7 +62,7 @@ public class View extends JFrame{
         ph = new PlaceHolder(username,"Email");
         mainP.add(loginP);
         JPanel passwordP = new JPanel();
-        password = new JTextField(20);
+        password = new JPasswordField(20);
         passwordP.add(password);
         ph = new PlaceHolder(password,"Password");
         mainP.add(passwordP);
@@ -86,7 +89,6 @@ public class View extends JFrame{
         link2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         link2.addMouseListener(controller);
         link2P.add(link2);       
-        
     }
     
     // Validation and repainting
@@ -95,6 +97,7 @@ public class View extends JFrame{
         this.repaint();
     }
     
+    //getter to get the info from the user
     public String getUsername(){
         return username.getText();
     }

@@ -20,13 +20,13 @@ public class MainModel {
     public boolean login (User user){
         boolean result = false;
         
-            try {
-
+            try {//conecting with database
             String dbServer = "jdbc:mysql://apontejaj.com:3306/Andressa_2019141?useSSL=false";
             String dbuser = "Andressa_2019141";
             String dbpassword = "2019141";
-            String query = "SELECT * FROM user WHERE username = '"+ user.getUn()+"' AND password = '"+user.getPw()+"'";
-
+            String query = "SELECT cemail, cpass FROM customer WHERE cemail = '"+ user.getUn()+"' AND cpass = '"+user.getPw()+"' UNION SELECT bemail, bpass FROM barber WHERE bemail = '"+ user.getUn()+"' AND bpass = '"+user.getPw()+"';";
+            //query to check if credentins are valid
+            
             // Get a connection to the database
             Connection conn = DriverManager.getConnection(dbServer, dbuser, dbpassword);
 
@@ -40,7 +40,7 @@ public class MainModel {
             if (rs.next()) {
                 result = true;
             }
-
+            
             // Close the result set, statement and the connection
             rs.close();
             stmt.close();

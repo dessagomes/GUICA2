@@ -16,20 +16,18 @@ import java.sql.Statement;
  * @author Andressa Gomes
  */
 public class Model2c {
-    View2c view;
+    public String[][]locationList(String userInput){
+        String[][]data = new String [5][2];
     
-    public String[][] locationList(){
-        String[][] data = new String [5][2];
-    
-        try {
-
+        try {//conecting with database
             String dbServer = "jdbc:mysql://apontejaj.com:3306/Andressa_2019141?useSSL=false";
-            String user = "cctstudent";
-            String password = "cctstudent";
-            String query = "SELECT bname, blocation FROM barber WHERE bname OR blocation = '"+view.getSearch()+"'";
-
+            String dbuser = "Andressa_2019141";
+            String dbpassword = "2019141";
+            String query = "SELECT bname, blocation FROM barber WHERE bname OR blocation = '"+userInput+"';";
+            //query to show the result searched by the user
+            
             // Get a connection to the database
-            Connection conn = DriverManager.getConnection(dbServer, user, password);
+            Connection conn = DriverManager.getConnection(dbServer, dbuser, dbpassword);
 
             // Get a statement from the connection
             Statement stmt = conn.createStatement();
@@ -39,12 +37,11 @@ public class Model2c {
             int row=0;
             while (rs.next())
             {
-                data[row][0] = rs.getString("id");
-                data[row][1] = rs.getString("first_name");
-                data[row][2] = rs.getString("student_number");
+                data[row][0] = rs.getString("bname");
+                data[row][1] = rs.getString("blocation");
                 row++;
             }
-           
+            
             rs.close();
             stmt.close();
             conn.close();

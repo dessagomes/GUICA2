@@ -7,7 +7,6 @@ package guica2;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -19,13 +18,12 @@ public class RegisterBModel {
     public boolean newBarber (Barber barber){
         boolean result = false;
         
-            try {
-
+            try{//conecting with database
             String dbServer = "jdbc:mysql://apontejaj.com:3306/Andressa_2019141?useSSL=false";
             String dbuser = "Andressa_2019141";
             String dbpassword = "2019141";
             String query = "insert into barber (bname, bemail, bphone, blocation, bpass) values ('"+barber.getbName()+"', '"+barber.getbEmail()+"', '"+barber.getbPhone()+"', '"+barber.getbLocal()+"', '"+barber.getbPass()+"');";
-
+            //query to insert new info to the table barber
             // Get a connection to the database
             Connection conn = DriverManager.getConnection(dbServer, dbuser, dbpassword);
 

@@ -22,6 +22,7 @@ public class Customer {
         this.cPass = cPass;
     }
     
+    //getter to get info from user
     public String getcName() {
         return cName;
     }

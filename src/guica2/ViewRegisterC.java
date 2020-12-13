@@ -42,6 +42,7 @@ public class ViewRegisterC extends JFrame{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     
+    //my frame
     public void mainPage(){
         JPanel p = new JPanel();
         this.add(p);
@@ -86,6 +87,7 @@ public class ViewRegisterC extends JFrame{
         
     }
     
+    //getter to get the info from the user
     public String getCName(){
         return cName.getText();
     }

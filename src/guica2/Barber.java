@@ -24,6 +24,7 @@ public class Barber {
         this.bPass = bPass;
     }
     
+    //getter to get the info and return it
     public String getbName() {
         return bName;
     }

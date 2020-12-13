@@ -18,13 +18,13 @@ public class RegisterCModel {
     public boolean newCustomer (Customer customer){
         boolean result = false;
         
-            try {
-
+            try {//conecting with database
             String dbServer = "jdbc:mysql://apontejaj.com:3306/Andressa_2019141?useSSL=false";
             String dbuser = "Andressa_2019141";
             String dbpassword = "2019141";
             String query = "insert into customer (cname, cemail, cphone, cpass) values ('"+customer.getcName()+"', '"+customer.getcEmail()+"', '"+customer.getcPhone()+"', '"+customer.getcPass()+"');";
-
+            //adding new info into customer table
+            
             // Get a connection to the database
             Connection conn = DriverManager.getConnection(dbServer, dbuser, dbpassword);
 

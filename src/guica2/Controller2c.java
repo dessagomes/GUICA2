@@ -7,42 +7,48 @@ package guica2;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Andressa Gomes
  */
-public class Controller2c implements ActionListener, KeyListener{
+public class Controller2c implements ActionListener{
     View2c view;
-    Model2c model;   
+    Model2c model;  
     boolean result;
+    String[][]data;
     
-    public Controller2c(){
-        this.view = new View2c();
+    public Controller2c(){//creating new view and model class
         this.model = new Model2c();
+        this.view = new View2c(this);        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(e.getActionCommand().equals("logout")){
+        //logout if user presses yes
+        int n = JOptionPane.showConfirmDialog(view,
+                "Would you like to logout?",
+                "Attention",
+                JOptionPane.YES_NO_OPTION);
+        if(n==0){
+            System.exit(0);
+        }
+        }
+        
+        if(e.getActionCommand().equals("b")){
+        //getting info from view class
+        String searchdata = view.getSearch();
+        
+        String[][]data = this.model.locationList(searchdata);
+        
+//        for (int i=0; i < data.length; i++){
+//            for (int j=0; j < data[i].length; j++){
+//                System.out.println(data[i][j]);
+//            }
+//        }
+        }
+        
     }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        System.out.println("jsjs");
-        System.out.println(e.getSource());
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

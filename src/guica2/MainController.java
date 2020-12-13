@@ -9,13 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,31 +16,34 @@ import javax.swing.JOptionPane;
  * @author Andressa Gomes
  */
 public class MainController implements ActionListener, MouseListener{
-
     View view;
     MainModel model;
     boolean result;
     
     public MainController(){
+        //this controller creates a view and a model
         this.view = new View(this);
-        this.model = new MainModel();
-        
+        this.model = new MainModel();   
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        //getting info from view class
         String un = view.getUsername();
         String pw = view.getPassword();
-        
+        //calling class user
         User user = new User(un, pw);
-        
+        //setting result with model code
         this.result = model.login(user);
-    
-        if(e.getActionCommand().equals("logionb")){
-            //open next page
-            
-            } else{
+
+        if(result){//if login successful
+            JOptionPane.showMessageDialog(view, "Welcome back!");
+            view.setVisible(false);
+//            if(){//if credentials = customer open custumer main page *not ready yet
+//              
+//            }else//if credentials = barber open barber main page *not ready yet
+        } 
+        else{//if loging fails            
                 JOptionPane.showMessageDialog(view, "Try again");
             }    
         }
@@ -55,18 +51,18 @@ public class MainController implements ActionListener, MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        
+        //if user clicks on first link
         if(e.getSource().equals(view.link1)){
+            //previous page "disappears" and next controller is created
             view.setVisible(false);
             new RegisterBController();
         }
+        //if user clicks on first link
         else if(e.getSource().equals(view.link2)){
+            //previous page "disappears" and next controller is created
             view.setVisible(false);
             new RegisterControllerC();
-        }
-        
-        
-       
+        } 
     }
 
     @Override
